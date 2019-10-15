@@ -12,6 +12,9 @@ public class mainframe extends JFrame{
     private JPasswordField pas= new JPasswordField(20);
     private JButton jbts=new JButton("LOGIN");
     private JButton jbte=new JButton("Exit");
+
+    private JButton jbtk=new JButton("KEYBOARD");
+
     public mainframe(){
         init();
     }
@@ -27,6 +30,7 @@ public class mainframe extends JFrame{
         jp.add(jlb2);
         jp.add(pas);
         jp.add(jbte);
+        cp.add(jbtk);
         jbte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,6 +53,17 @@ public class mainframe extends JFrame{
                 }
             }
         });
+        jbtk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                RandomKeyboard rk=new RandomKeyboard();
+                rk.setVisible(true);
+
+            }
+        });
         cp.add(jp,BorderLayout.NORTH);
+    }
+    public void setPwData(String pwStr){
+        pas.setText(pwStr);
     }
 }
